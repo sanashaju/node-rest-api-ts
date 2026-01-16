@@ -8,6 +8,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import { authLimiter } from './middleware/rateLimiter.middleware.js';
 import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 
 dotenv.config();
 
@@ -37,7 +38,7 @@ app.use('/api', authLimiter, authRoutes);
 
 app.use('/api/users', userRoutes);
 
-// app.use('/api/products', productRoutes);
+app.use('/api/products', productRoutes);
 
 //  Start server
 const PORT = process.env.PORT || 3000;
