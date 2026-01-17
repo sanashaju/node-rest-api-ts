@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { FilterQuery } from 'mongoose';
-import Product from '../models/Product.js';
+import Product  from '../models/Product.js';
 import { CreateProductDTO, UpdateProductDTO, IProduct } from '../interfaces/product.interface.js';
 
 /**

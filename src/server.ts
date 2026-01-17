@@ -9,6 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import { authLimiter } from './middleware/rateLimiter.middleware.js';
 import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
 
 dotenv.config();
 
@@ -39,6 +40,8 @@ app.use('/api', authLimiter, authRoutes);
 app.use('/api/users', userRoutes);
 
 app.use('/api/products', productRoutes);
+
+app.use('/api/students', studentRoutes);
 
 //  Start server
 const PORT = process.env.PORT || 3000;
