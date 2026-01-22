@@ -6,7 +6,8 @@ import { validate } from '../middleware/validation.middleware.js';
 
 const authRoutes = express.Router({ mergeParams: true });
 
-authRoutes.post('/register', validate(registerValidation), registerUser);
+authRoutes.post('/register',validate(registerValidation),registerUser);
+
 
 authRoutes.post('/login', loginUser);
 
