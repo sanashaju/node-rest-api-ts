@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Build output
+dist
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+
+# Documentation
+README.md
+LICENSE
+
+# Logs
+logs
+*.log
+
+# Testing
+coverage
+.nyc_output
+
+# Cache
+.npm
+.eslintcache
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db

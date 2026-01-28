@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7
+    container_name: rest-api-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=rest-api-ts
+    networks:
+      - rest-api-network
+
+  # Node.js REST API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rest-api-ts
+    restart: unless-stopped
+    ports:
+      - "9002:9002"
+    environment:
+      - PORT=9002
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongodb:27017/
+      - DATABASE=rest-api-ts
+      - JWT_SECRET=${JWT_SECRET:-your_jwt_secret_key}
+    depends_on:
+      - mongodb
+    networks:
+      - rest-api-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  rest-api-network:
+    driver: bridge

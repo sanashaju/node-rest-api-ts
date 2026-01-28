@@ -5,6 +5,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import connectDB from './config/db.js';
+import './config/redis.js';
 import authRoutes from './routes/authRoutes.js';
 import { authLimiter } from './middleware/rateLimiter.middleware.js';
 import userRoutes from './routes/userRoutes.js';
